@@ -1,0 +1,40 @@
+show databases;
+
+
+#创建一个dept1的表列为id 和name
+create table dept1
+(id int(7),
+name varchar(25));
+desc dept1;
+
+#创建一个表dept2将employees表中的department_id,department_name转移到dept2中
+create table dept2
+select department_id,department_name
+from myemployees departments;
+
+
+#创建表emp5并满足填满其中的信息
+create table emp5(id int(7),
+first_name varchar(25),
+last_name varchar(25),
+dept_id int(7));
+
+
+#将emp5的last name varchar 改成50
+alter table emp5 modify column last_name varchar(50);
+
+#
+create table employees2 like myemployees employees
+
+#删掉emp5如果他存在
+drop table if exists emp5;
+
+#重命名
+alter table employees2 rename to emp5;
+
+#在表中添加某项
+alter table dept add test_column;
+alter table emp5 add test_cloumn;
+
+在表中删掉dept id
+alter table emp5 drop column dept_id;
