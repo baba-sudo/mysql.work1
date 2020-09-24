@@ -1,0 +1,58 @@
+#      运行以下脚本创建表
+my_employees 
+mysql> create database class;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> use class;
+Database changed
+mysql> create table my_employees(id int(10),first_name varchar(10),last_name var
+char(10),userid varchar(10),salary double(10,2));
+Query OK, 0 rows affected, 2 warnings (0.04 sec)
+
+mysql> create table usrs(id int,userid varchar(10),department_id int);
+Query OK, 0 rows affected (0.04 sec)
+
+
+
+#      向 my_employees 表中插入下列数据 
+mysql> insert into my_employees(`id`,`first_name`,`last_name`,`userid`,`salary`)
+values(1,'patel','Ralph','Rpatel',895),(2,'Dancs','Betty','Bdancs',860),(3,'Biri
+','Ben','Bbiri',1100),(4,'Newman','Chad','Cnewman',750),(5,'Ropeburn','Audrey','
+Audrey',1550);
+   
+Query OK, 5 rows affected (0.07 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+
+
+#       向 usrs 表中插入数据 
+mysql> insert into usrs(`id`,`userid`,`department_id`)values(1,'rpatel',10),(2,'
+bdancs',10),(3,'bbiri',20),(4,'cnewman',30),(5,'aropebur',40);
+Query OK, 5 rows affected (0.02 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+
+
+#       将 3 号员工的 last_name 修改为“drelxer” 3#
+mysql> update my_employees set last_name = 'drelxer' where id = 3;
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+
+
+#       将所有工资少于 900 的员工的工资修改为 1000 
+mysql> update my_employees set salary = 1000 where salary < 900;
+Query OK, 3 rows affected (0.06 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+
+
+#       将 userid 为 Bbiri 的 usr 表的记录全部删除 
+mysql> delete from usrs where userid = 'bbiri';
+Query OK, 1 row affected (0.03 sec)
+
+
+
+#       清空表 my_employees 
+mysql> delete from my_employees;
+Query OK, 5 rows affected (0.00 sec)
